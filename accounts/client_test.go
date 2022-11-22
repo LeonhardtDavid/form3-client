@@ -33,9 +33,10 @@ var _ = Describe("Account Client", Ordered, func() {
 		httpServer = httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			const path = "/v1/organisation/accounts"
 			if r.URL.Path == path && r.Method == http.MethodPost {
-				var res map[string]string
+				var res map[string]map[string]string
 				_ = json.NewDecoder(r.Body).Decode(&res)
-				if res["id"] == idToFail.String() {
+				data := res["data"]
+				if data["id"] == idToFail.String() {
 					w.WriteHeader(http.StatusBadRequest)
 					errorResponse := errorBody{ErrorMessage: "some invalid field"}
 					jsonResponse, _ := json.Marshal(errorResponse)

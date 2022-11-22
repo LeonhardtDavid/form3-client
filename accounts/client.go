@@ -38,7 +38,7 @@ type errorBody struct {
 func (c *accountHttpClient) Create(ctx context.Context, account models.AccountData) (*models.AccountData, error) {
 	url := c.getAccountsURL()
 
-	body, err := json.Marshal(account)
+	body, err := json.Marshal(accountBody{Data: account})
 	if err != nil {
 		return nil, err
 	}
