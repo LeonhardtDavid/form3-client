@@ -38,5 +38,5 @@ type AccountClassification string
 
 const (
 	Business AccountClassification = "Business"
-	Personal AccountClassification = "Personal"
+	Personal                       = "Personal"
 )
