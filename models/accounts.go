@@ -30,7 +30,7 @@ type AccountAttributes struct {
 	JointAccount            *bool                  `json:"joint_account,omitempty"`
 	Name                    []string               `json:"name,omitempty"`
 	SecondaryIdentification string                 `json:"secondary_identification,omitempty"`
-	Status                  *string                `json:"status,omitempty"`
+	Status                  *AccountStatus         `json:"status,omitempty"`
 	Switched                *bool                  `json:"switched,omitempty"`
 }
 
@@ -39,4 +39,12 @@ type AccountClassification string
 const (
 	Business AccountClassification = "Business"
 	Personal                       = "Personal"
+)
+
+type AccountStatus string
+
+const (
+	Closed    AccountStatus = "closed"
+	Confirmed               = "confirmed"
+	Pending                 = "pending"
 )
