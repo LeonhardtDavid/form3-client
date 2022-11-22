@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  accountapi-tests:
+    image: golang:1.19
+    depends_on:
+      - accountapi
+    environment:
+      - FORM3_URL=http://accountapi:8080
+    working_dir: /client
+    volumes:
+      - $PWD:/client
+    command: ./coverage.sh
+
   accountapi:
     image: form3tech/interview-accountapi:v1.0.0-46-gb3b6c766
     restart: on-failure
