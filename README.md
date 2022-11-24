@@ -11,6 +11,8 @@ Please, be gentle with my Golang code 😄.
 
 ## About the exercise
 
+*Instructions taken from https://github.com/form3tech-oss/interview-accountapi*
+
 The client implementation for the account API can be found [here](./accounts/client.go). It has unit tests implemented [here](./accounts/client_test.go)
 and integration tests (these are the ones that actually call the fake API) [here](./accounts/integration_tests/client_test.go).  
 It implements the methods `Create`, `Fetch`, and `Delete` to call the API with the reduced [model](./models/accounts.go) as asked.
